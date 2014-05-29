@@ -1,0 +1,118 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- use chrome frame if installed -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>jQuery Switcher Plugin</title>
+  <meta name="description" content="jQuery Switcher Plugin">
+
+  <!-- Mobile viewport optimization -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <h1>Switcher Plugin</h1>
+
+  <p>This is a jQuery Plugin that toggles, or switches out, the content being displayed.</p>
+
+  <p>You can set any of the following options to customize it to fit your needs:</p>
+    <pre>
+<code>
+// options
+$('selector').switcher({
+  activeTargetClass: 'switcher-target-active', // class to add to the selected trigger
+  activeContentClass: 'switcher-content-active', // class to add to the selected trigger
+  callback: function(){},
+  collection: null, // content collection, REQUIRED
+  ev: 'click',  // sets the default event type to click
+  animate: true, // slide animation?
+  target: null  // target content to show on init
+  trigger: 'a' // selector of each element within 'selector' that will trigger the event
+});
+</code>
+</pre>
+
+  <p>NOTE: Options can be set using the a <code>data</code> attribute as well. For example if using an anchor, the <code>href</code> attribute is used to set the target, to add the collection you could do this:</p>
+
+  <pre>
+<code>
+  &lt;a href="#foo" data-role="switcher" data-collection="switcher-content"&gt;Foo&lt;/a&gt;
+</code>
+  </pre>
+
+
+  <div data-role="switcher" data-trigger="a">
+    <a href="#foo" >Foo</a>
+    <a href="#bar">Bar</a>
+    <a href="#foobar">Foo Bar</a>
+    <a href="#fubar">Fubar</a>
+  </div>
+
+  <div id="foo" class="switcher-content">
+    <p>Foo Content</p>
+    <p>Foo Content</p>
+    <p>Foo Content</p>
+    <p>Foo Content</p>
+    <p>Foo Content</p>
+    <p>Foo Content</p>
+    <p>Foo Content</p>
+  </div>
+
+  <div id="bar" class="switcher-content">
+    <p>Bar Content</p>
+    <p>Bar Content</p>
+    <p>Bar Content</p>
+    <p>Bar Content</p>
+    <p>Bar Content</p>
+    <p>Bar Content</p>
+  </div>
+
+  <div id="foobar" class="switcher-content">
+    <p>Foo Bar Content</p>
+    <p>Foo Bar Content</p>
+    <p>Foo Bar Content</p>
+    <p>Foo Bar Content</p>
+    <p>Foo Bar Content</p>
+  </div>
+
+  <div id="fubar" class="switcher-content">
+    <p>Fubar Content</p>
+    <p>Fubar Content</p>
+    <p>Fubar Content</p>
+    <p>Fubar Content</p>
+    <p>Fubar Content</p>
+    <p>Fubar Content</p>
+    <p>Fubar Content</p>
+    <p>Fubar Content</p>
+  </div>
+
+
+
+<!-- JavaScript at the bottom for faster page loading -->
+
+<!-- Libraries -->
+<!-- jQuery(UI): Google CDN w/ protocol relative URL -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- Site/App Scripts: concat and minify for prod -->
+<script src="jquery-switcher.js"></script>
+
+<script>
+
+  $('[data-role="switcher"]').switcher({
+    collection: '.switcher-content',
+    target: '#foobar'
+  });
+
+</script>
+
+</body>
+</html>
