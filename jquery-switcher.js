@@ -1,4 +1,4 @@
-/* jquery-switcher.js
+/*! jquery-switcher.js
  *
  * Authored by: Cory Dorning & Brett Metzger
  *
