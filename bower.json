@@ -1,0 +1,22 @@
+{
+  "name": "jquery-switcher",
+  "main": "jquery-switcher.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/corydorning/jquery-switcher",
+  "authors": [
+    "Cory Dorning <cory@dorning.me>"
+  ],
+  "description": "The switcher plugin allows you to switch the content being displayed. You can set a callback, the event type, a slide option and the content target (required) you want to switch.",
+  "keywords": [
+    "jquery",
+    "switcher"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
