@@ -5,7 +5,7 @@
  * Dependencies: jQuery v1.8+
  *
  * Last modified by: Cory Dorning & Brett Metzger
- * Last modified on: 11/04/2013
+ * Last modified on: 09/18/2014
  *
  * The switcher plugin allows you to switch the content being displayed.
  * You can set a callback, the event type, a slide option and the content
@@ -54,7 +54,7 @@
       toggler = {
 
         // hide collection
-        hide: function(){
+        _hide: function(){
           $(settings.collection)
             .not(settings.target)
             .removeClass(settings.activeContentClass)
@@ -64,10 +64,14 @@
         },
 
         // show target
-        show: function() {
+        _show: function() {
           $(settings.target)
             .addClass(settings.activeContentClass)
             .show(settings.animate ? 400 : 0);
+        },
+
+        run: function() {
+          this._hide()._show();
         }
 
       },
@@ -89,20 +93,17 @@
         settings.target = $(this).attr('href') || $(this).data('target');
 
         // run toggler
-        toggler
-          .hide()
-          .show();
+        toggler.run();
 
         // run callback
         settings.callback();
 
         // prevent default trigger action
         ev.preventDefault();
-      })
+      });
 
       // find trigger for target content on init
-      .filter(($sel.data('target') ? '[data-target="' : '[href="') + settings.target + '"]')
-      .trigger(settings.event);
+      toggler.run();
 
     // find trigger for target content on init
     return $sel;
